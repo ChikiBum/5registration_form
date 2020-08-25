@@ -15,7 +15,11 @@ const render = function(name) {
     let keysLS = Object.keys(localStorage);
    
     for (let key of keysLS){
+      
+      if (JSON.parse(localStorage.getItem(key)).guid === 'acc19b2c-e6e2-11ea-adc1-0242ac120002')
+      {
         userList.push(JSON.parse(localStorage.getItem(key)));
+      }
     }
 
     if (name !== undefined){
@@ -81,11 +85,11 @@ registerUser.addEventListener('click', function(event){
         let month;
 
         switch ( nowMonth ) {
-            case 0 : month = 'Января‎';
+            case 0 : month = 'Января';
               break;
-            case 1 : month = 'Февраля‎';
+            case 1 : month = 'Февраля';
               break;
-            case 2 : month = 'Март‎а';
+            case 2 : month = 'Мартаа';
               break;
             case 3 : month = 'Апреля';
               break;
@@ -109,6 +113,7 @@ registerUser.addEventListener('click', function(event){
     const createDate = `${dayName} ${month} ${fullYear} г., ${hourName}:${minuteName}:${secondName}`;        
 
     const user = {
+        guid: 'acc19b2c-e6e2-11ea-adc1-0242ac120002',
         firstName : userName.split(' ')[0].trim(),
         lastName : userName.split(' ')[1].trim(),
         login: newlogin,
@@ -144,13 +149,19 @@ login.addEventListener('click', function(event){
         userPass  = prompt('Enter your password');
     }
 
+    let count = 0;
     for (let key of userList){
-        if (userlogin === key.login && userPass === key.password){
-            render(key.firstName);
-        } else {
-            alert('Login Failed');
-            render();
+      
+      if (userlogin === key.login && userPass === key.password){
+          render(key.firstName);
+      } else {
+        count++;
+        if (count === userList.length)
+        {
+          alert('Login Failed');
+          // render();
         }
+      }
    
     }
 });
