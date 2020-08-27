@@ -31,7 +31,7 @@ const render = function(name) {
                 console.log(userList);
             const li = document.createElement('li');
             li.innerHTML = `${key.firstName} ${key.lastName} ${key.login} ${key.password},
-            Дата регистрации: ${key.createDate} <div class="todo-buttons"><button class="todo-remove"></button></div>`;
+            Registration Date: ${key.createDate} <div class="todo-buttons"><button class="todo-remove"></button></div>`;
             list.append(li) ;
 
             const btnTodoRemove = li.querySelector('.todo-remove');
@@ -85,32 +85,32 @@ registerUser.addEventListener('click', function(event){
         let month;
 
         switch ( nowMonth ) {
-            case 0 : month = 'Января';
+            case 0 : month = 'January';
               break;
-            case 1 : month = 'Февраля';
+            case 1 : month = 'February';
               break;
-            case 2 : month = 'Мартаа';
+            case 2 : month = 'March';
               break;
-            case 3 : month = 'Апреля';
+            case 3 : month = 'April';
               break;
-            case 4 : month = 'Мая';
+            case 4 : month = 'May';
               break;
-            case 5 : month = 'Июня';
+            case 5 : month = 'June';
               break;
-            case 6 : month = 'Июля';
+            case 6 : month = 'July';
               break;
-            case 7 : month = 'Августа';
+            case 7 : month = 'August';
               break;
-            case 8 : month = 'Сентября';
+            case 8 : month = 'September';
               break;
-            case 9: month = 'Октября';
+            case 9: month = 'October';
               break;
-            case 10: month = 'Ноября';
+            case 10: month = 'November';
               break;
-            case 11: month = 'Декабря';
+            case 11: month = 'December';
               break;}
     //Дата регистрации в формате “20 июня 2020 г., 19:58:47” 
-    const createDate = `${dayName} ${month} ${fullYear} г., ${hourName}:${minuteName}:${secondName}`;        
+    const createDate = `${dayName} ${month} ${fullYear} h., ${hourName}:${minuteName}:${secondName}`;        
 
     const user = {
         guid: 'acc19b2c-e6e2-11ea-adc1-0242ac120002',
